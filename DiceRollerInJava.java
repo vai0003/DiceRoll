@@ -17,13 +17,21 @@ public class DiceRollerInJava {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
+       
         while (true) {
-            int result = dice.roll();
-            System.out.println("dice face value:" + result);
-            dice.draw(result);
- 
-            System.out.println("Roll again? (type no to quit):");
+
+            System.out.println("Do you want to roll dice? (type yes to contine and no to quit):");
             String input = scanner.nextLine();
+            System.out.println("How many dices do you want to roll? (type an integer value):");
+            Integer dices = Integer.valueOf(scanner.nextLine());
+
+            for (int i = 0; i < dices; i++) {
+                int result = dice.roll();
+                System.out.println("dice face value:" + result);
+                dice.draw(result);
+
+            }
+
             if (input.equalsIgnoreCase("n") || 
                     input.equalsIgnoreCase("no")) {
                 System.out.println("Bye!");
